@@ -371,11 +371,75 @@ a:hover {
     color: white;
     border: none;
     margin-top: auto;
-    padding: 2rem 0;
+    padding: 3rem 0 1rem 0;
 }
 
 .footer .text-muted {
     color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-col {
+    margin-bottom: 2rem;
+}
+
+.footer-col h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
+    margin: 2rem 0 1rem 0;
+}
+
+.footer .bi {
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem 0;
+    }
+
+    .footer-col {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-col h5 {
+        font-size: 1.1rem;
+    }
 }
 
 /* Utilities */

@@ -40,12 +40,23 @@
                 </select>
             </div>
             <div class="filter-group">
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-search"></i> Search
-                </button>
-                <a href="@Url.Action("Cars", "Home")" class="btn btn-outline-secondary">
-                    <i class="bi bi-arrow-clockwise"></i> Reset
-                </a>
+                <label class="form-label">Availability</label>
+                <select name="availability" class="form-select">
+                    <option value="">All Cars</option>
+                    <option value="available" selected="@(ViewBag.Availability == "available")">Available Only</option>
+                    <option value="booked" selected="@(ViewBag.Availability == "booked")">Booked Only</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="form-label">&nbsp;</label>
+                <div class="button-group">
+                    <button type="submit" class="filter-btn">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                    <a href="@Url.Action("Cars", "Home")" class="reset-btn">
+                        <i class="bi bi-arrow-clockwise"></i> Reset
+                    </a>
+                </div>
             </div>
         </div>
     </form>

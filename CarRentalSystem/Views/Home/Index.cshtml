@@ -32,7 +32,7 @@
             }
             else
             {
-                <a class="hero-cta" href="#cars-section" role="button">
+                <a class="hero-cta" href="@Url.Action("Cars", "Home")" role="button">
                     Browse Cars <i class="bi bi-car-front ms-2"></i>
                 </a>
             }
@@ -64,15 +64,15 @@
             <div class="col-md-3 col-sm-6">
                 <div class="offer-card shadow-sm">
                     <span class="offer-badge">SAVE 20%</span>
-                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a"
-                         alt="Superflex Car" class="offer-img" />
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" alt="Superflex Car"
+                        class="offer-img" />
                     <div class="offer-content text-center">
                         <h5 class="mt-2">Discover Superflex</h5>
                         <p class="text-muted">Ride with 20% discount today</p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <!-- View Details using CarController Details method -->
                             <a asp-controller="Cars" asp-action="Details" asp-route-id="1"
-                               class="btn btn-outline-primary btn-sm">View Details</a>
+                                class="btn btn-outline-primary btn-sm">View Details</a>
                             <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
@@ -85,14 +85,14 @@
             <div class="col-md-3 col-sm-6">
                 <div class="offer-card shadow-sm">
                     <span class="offer-badge">20% OFF</span>
-                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
-                         alt="Italy Car" class="offer-img" />
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d" alt="Italy Car"
+                        class="offer-img" />
                     <div class="offer-content text-center">
                         <h5 class="mt-2">Discover Italy</h5>
                         <p class="text-muted">Ride with 20% discount in Italy</p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <a asp-controller="Cars" asp-action="Details" asp-route-id="2"
-                               class="btn btn-outline-primary btn-sm">View Details</a>
+                                class="btn btn-outline-primary btn-sm">View Details</a>
                             <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
@@ -105,14 +105,14 @@
             <div class="col-md-3 col-sm-6">
                 <div class="offer-card shadow-sm">
                     <span class="offer-badge">UP TO 15%</span>
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-                         alt="Beautiful Car" class="offer-img" />
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beautiful Car"
+                        class="offer-img" />
                     <div class="offer-content text-center">
                         <h5 class="mt-2">Life is Beautiful</h5>
                         <p class="text-muted">Enjoy up to 15% off today</p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <a asp-controller="Cars" asp-action="Details" asp-route-id="3"
-                               class="btn btn-outline-primary btn-sm">View Details</a>
+                                class="btn btn-outline-primary btn-sm">View Details</a>
                             <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
@@ -125,14 +125,14 @@
             <div class="col-md-3 col-sm-6">
                 <div class="offer-card shadow-sm">
                     <span class="offer-badge">HOT DEAL</span>
-                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-                         alt="Spain Car" class="offer-img" />
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Spain Car"
+                        class="offer-img" />
                     <div class="offer-content text-center">
                         <h5 class="mt-2">Visit Spain this Autumn</h5>
                         <p class="text-muted">Exclusive hot deals available</p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <a asp-controller="Cars" asp-action="Details" asp-route-id="4"
-                               class="btn btn-outline-primary btn-sm">View Details</a>
+                                class="btn btn-outline-primary btn-sm">View Details</a>
                             <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
@@ -143,37 +143,6 @@
 
         </div>
     </div>
-</section>
-
-<!-- Search and Filter Section -->
-<section class="filter-section" id="filter-section">
-    <h4 class="filter-title">
-        <i class="bi bi-funnel"></i>
-        Find Your Perfect Car
-    </h4>
-    <form method="get" asp-action="Index">
-        <div class="filter-row">
-            <div class="filter-group">
-                <label class="form-label">Search Cars</label>
-                <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" class="form-control"
-                    placeholder="Search by name, brand, or model">
-            </div>
-            <div class="filter-group">
-                <label class="form-label">Number of Seats</label>
-                <select name="seats" class="form-select">
-                    <option value="">All Seat Counts</option>
-                    <option value="2" selected="@(ViewBag.Seats == 2)">2 Seats</option>
-                    <option value="4" selected="@(ViewBag.Seats == 4)">4 Seats</option>
-                    <option value="5" selected="@(ViewBag.Seats == 5)">5 Seats</option>
-                    <option value="7" selected="@(ViewBag.Seats == 7)">7 Seats</option>
-                    <option value="8" selected="@(ViewBag.Seats == 8)">8+ Seats</option>
-                </select>
-            </div>
-            <button type="submit" class="filter-btn">
-                <i class="bi bi-search"></i> Search
-            </button>
-        </div>
-    </form>
 </section>
 
 <!-- About / Highlights Section -->
@@ -202,112 +171,307 @@
     </div>
 </section>
 
-<!-- Cars Grid Section -->
-<section id="cars-section">
-    <div class="cars-grid">
-        @if (Model.Any())
-        {
-            @foreach (var car in Model)
-            {
-                <div class="car-card">
-                    <div class="car-image">
-                        @if (!string.IsNullOrEmpty(car.ImageUrl))
-                        {
-                            <img src="@car.ImageUrl" alt="@car.CarName">
-                        }
-                        else if (!string.IsNullOrEmpty(car.ImagePath))
-                        {
-                            <img src="@Url.Content("~/uploads/" + car.ImagePath)" alt="@car.CarName">
-                        }
-                        else
-                        {
-                            <div class="placeholder">
-                                <i class="bi bi-car-front"></i>
-                                <p>No Image Available</p>
-                            </div>
-                        }
+<!-- Why Choose Us Section -->
+<section class="why-choose-us-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="section-title mb-4">Why Choose Our Car Rental Service?</h2>
+                <p class="lead mb-4">Experience the difference with our premium car rental service. We're committed to
+                    providing you with the best vehicles and exceptional customer service.</p>
 
-                        <span class="availability-badge @(car.IsAvailable ? "status-available" : "status-booked")">
-                            @(car.IsAvailable ? "Available" : "Booked")
-                        </span>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        <div>
+                            <h5>Best Price Guarantee</h5>
+                            <p>We offer competitive rates and price matching to ensure you get the best deal.</p>
+                        </div>
                     </div>
-
-                    <div class="car-info">
-                        <h3 class="car-title">@car.CarName</h3>
-                        <div class="car-details">
-                            <p><strong>Brand:</strong> @car.Brand</p>
-                            <p><strong>Model Year:</strong> @car.CarModel</p>
-                            <p><strong>Seats:</strong> <i class="bi bi-people"></i> @car.Seats passengers</p>
+                    <div class="feature-item">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        <div>
+                            <h5>Free Cancellation</h5>
+                            <p>Cancel your booking up to 24 hours before pickup with no additional charges.</p>
                         </div>
-
-                        <div class="car-price">
-                            $50.00 <small>per day</small>
+                    </div>
+                    <div class="feature-item">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        <div>
+                            <h5>No Hidden Fees</h5>
+                            <p>Transparent pricing with no surprise charges. What you see is what you pay.</p>
                         </div>
-
-                        <div class="car-actions">
-                            <a href="@Url.Action("CarDetails", "Home", new { id = car.CarID })" class="btn btn-outline-primary">
-                                <i class="bi bi-eye"></i> View Details
-                            </a>
-
-                            @if (car.IsAvailable)
-                            {
-                                @if (ViewBag.IsCustomer)
-                                {
-                                    <a href="@Url.Action("Book", "Bookings", new { carId = car.CarID })" class="btn btn-success">
-                                        <i class="bi bi-calendar-check"></i> Book Now
-                                    </a>
-                                }
-                                else if (!ViewBag.IsLoggedIn)
-                                {
-                                    <a href="@Url.Action("Login", "Account")" class="btn btn-warning">
-                                        <i class="bi bi-box-arrow-in-right"></i> Login to Book
-                                    </a>
-                                }
-                            }
+                    </div>
+                    <div class="feature-item">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        <div>
+                            <h5>Clean & Sanitized</h5>
+                            <p>All vehicles are thoroughly cleaned and sanitized before every rental.</p>
                         </div>
                     </div>
                 </div>
-            }
-        }
-        else
-        {
-            <div class="empty-state">
-                <i class="bi bi-car-front"></i>
-                <h4>No cars found</h4>
-                <p>Try adjusting your search criteria or check back later for new cars.</p>
             </div>
-        }
-    </div>
-
-    <!-- Pagination -->
-    @if (Model.Any())
-    {
-        <div class="pagination-wrapper">
-            <nav aria-label="Car pagination">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <i class="bi bi-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="col-lg-6">
+                <div class="image-placeholder">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Professional car rental service" class="img-fluid rounded shadow">
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </section>
 
+<!-- How It Works Section -->
+<section class="how-it-works-section py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">How It Works</h2>
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="bi bi-search step-icon"></i>
+                    <h4>Choose Your Car</h4>
+                    <p>Browse our extensive fleet and select the perfect vehicle for your needs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="bi bi-calendar-check step-icon"></i>
+                    <h4>Book Online</h4>
+                    <p>Complete your reservation in minutes with our easy online booking system.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="bi bi-key step-icon"></i>
+                    <h4>Pick Up & Drive</h4>
+                    <p>Collect your car and enjoy your journey with confidence and comfort.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Customer Testimonials Section -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">What Our Customers Say</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p>"Excellent service! The car was clean, well-maintained, and the booking process was seamless.
+                        Highly recommended!"</p>
+                    <div class="customer-info">
+                        <strong>Sarah Johnson</strong>
+                        <small class="text-muted">Business Traveler</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p>"Great value for money and fantastic customer support. The team went above and beyond to help us
+                        during our vacation."</p>
+                    <div class="customer-info">
+                        <strong>Mike Chen</strong>
+                        <small class="text-muted">Family Vacation</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p>"Professional service from start to finish. The car was exactly as described and pickup was quick
+                        and easy."</p>
+                    <div class="customer-info">
+                        <strong>Emily Rodriguez</strong>
+                        <small class="text-muted">Weekend Getaway</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse1">
+                                What do I need to rent a car?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You need a valid driver's license, a credit card in your name, and you must be at least
+                                21 years old. International visitors need a valid passport and international driving
+                                permit.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse2">
+                                Can I cancel or modify my reservation?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, you can cancel or modify your reservation up to 24 hours before your pickup time
+                                without any charges. Changes made within 24 hours may incur additional fees.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse3">
+                                Is insurance included in the rental price?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Basic insurance coverage is included in all our rental prices. Additional coverage
+                                options are available for purchase during booking for extra protection.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse4">
+                                What happens if I return the car late?
+                            </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Late returns are subject to additional charges. We offer a 30-minute grace period, after
+                                which you'll be charged for an additional day if returned more than 2 hours late.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse5">
+                                Do you offer one-way rentals?
+                            </button>
+                        </h2>
+                        <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer one-way rentals between select locations. Additional fees may apply
+                                depending on the pickup and drop-off locations. Contact us for specific pricing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq6">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse6">
+                                What fuel policy do you follow?
+                            </button>
+                        </h2>
+                        <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We operate on a "full-to-full" fuel policy. You'll receive the car with a full tank and
+                                should return it with a full tank to avoid refueling charges.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="text-white mb-3">Ready to Hit the Road?</h2>
+                <p class="text-white-50 mb-0">Join thousands of satisfied customers and experience the freedom of
+                    premium car rental.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                @if (!ViewBag.IsLoggedIn)
+                {
+                    <a href="@Url.Action("Register", "Account")" class="btn btn-light btn-lg">
+                        <i class="bi bi-person-plus"></i> Get Started Today
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Cars", "Home")" class="btn btn-light btn-lg">
+                        <i class="bi bi-car-front"></i> Browse Our Fleet
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <h3 class="stat-number">1000+</h3>
+                    <p class="stat-label">Happy Customers</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <h3 class="stat-number">50+</h3>
+                    <p class="stat-label">Premium Vehicles</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <h3 class="stat-number">24/7</h3>
+                    <p class="stat-label">Customer Support</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <h3 class="stat-number">5★</h3>
+                    <p class="stat-label">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

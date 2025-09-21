@@ -54,7 +54,7 @@ namespace CarRentalSystem.Controllers
             return View(cars);
         }
 
-        public async Task<IActionResult> Cars(string searchTerm = "", int? seats = null)
+        public async Task<IActionResult> Cars(string searchTerm = "", int? seats = null, string availability = "")
         {
             var carsQuery = _context.Cars.AsQueryable();
 
@@ -80,11 +80,26 @@ namespace CarRentalSystem.Controllers
                 }
             }
 
+            // Apply availability filter
+            if (!string.IsNullOrEmpty(availability))
+            {
+                if (availability == "available")
+                {
+                    carsQuery = carsQuery.Where(c => c.IsAvailable == true);
+                }
+                else if (availability == "booked")
+                {
+                    carsQuery = carsQuery.Where(c => c.IsAvailable == false);
+                }
+                // If availability is "all" or any other value, show all cars (no filter)
+            }
+
             var cars = await carsQuery.ToListAsync();
 
             // Set ViewBag properties for the view
             ViewBag.SearchTerm = searchTerm;
             ViewBag.Seats = seats;
+            ViewBag.Availability = availability;
             ViewBag.IsLoggedIn = IsLoggedIn;
             ViewBag.IsCustomer = IsCustomer;
 

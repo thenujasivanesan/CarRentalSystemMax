@@ -157,15 +157,40 @@
         @RenderBody()
     </main>
 
-    <footer class="footer mt-5 py-4">
-        <div class="container text-center">
+    <footer class="footer">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h5 class="text-white mb-3">Car Rental System</h5>
-                    <p class="text-muted mb-0">Your trusted partner for car rentals</p>
+                <!-- About Section -->
+                <div class="col-md-4 footer-col">
+                    <h5>Car Rental System</h5>
+                    <p>Your trusted partner for affordable and reliable car rentals. We make your journey safe and comfortable.</p>
                 </div>
-                <div class="col-md-6">
-                    <p class="text-muted mb-0">&copy; 2024 Car Rental Management System. All rights reserved.</p>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a asp-controller="Pages" asp-action="Privacy">Privacy Policy</a></li>
+                        <li><a asp-controller="Pages" asp-action="Terms">Terms & Conditions</a></li>
+                        <li><a asp-controller="Pages" asp-action="About">About Us</a></li>
+                        <li><a asp-controller="Pages" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-4 footer-col">
+                    <h5>Contact Us</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> 123 Main Street, Colombo, Sri Lanka</p>
+                    <p><i class="bi bi-telephone-fill"></i> ‪+94 71 123 4567‬</p>
+                    <p><i class="bi bi-envelope-fill"></i> support@carrentalsystem.com</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Car Rental Management System. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,93 @@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h2 class="mb-0"><i class="bi bi-envelope"></i> Contact Us</h2>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.Success != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="bi bi-check-circle"></i> @ViewBag.Success
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <p class="lead">We'd love to hear from you! Send us a message and we'll respond as soon as possible.</p>
+                    
+                    <form asp-controller="Pages" asp-action="SendMessage" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="Name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="Name" name="Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="Email" name="Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="Message" name="Message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-info-circle"></i> Get in Touch</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6><i class="bi bi-geo-alt-fill text-primary"></i> Address</h6>
+                        <p class="text-muted">123 Main Street<br>Colombo, Sri Lanka</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6><i class="bi bi-telephone-fill text-primary"></i> Phone</h6>
+                        <p class="text-muted">+94 71 123 4567</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6><i class="bi bi-envelope-fill text-primary"></i> Email</h6>
+                        <p class="text-muted">support@carrentalsystem.com</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6><i class="bi bi-clock-fill text-primary"></i> Business Hours</h6>
+                        <p class="text-muted">
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow mt-3">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-headset"></i> Need Immediate Help?</h5>
+                </div>
+                <div class="card-body">
+                    <p>For urgent matters or roadside assistance, call our 24/7 emergency hotline:</p>
+                    <p class="text-center">
+                        <a href="tel:+94711234567" class="btn btn-success">
+                            <i class="bi bi-telephone"></i> +94 71 123 4567
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Cars", "Home")">Cars</a></li>
         <li class="breadcrumb-item active">@Model.CarName</li>
     </ol>
 </nav>
@@ -122,7 +123,7 @@
                         </button>
                     }
 
-                    <a href="@Url.Action("Index", "Home")" class="btn btn-back">
+                    <a href="@Url.Action("Cars", "Home")" class="btn btn-back">
                         <i class="bi bi-arrow-left"></i> Back to Cars
                     </a>
                 </div>

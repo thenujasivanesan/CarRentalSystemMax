@@ -1,12 +1,14 @@
 /* Custom styles for Car Rental Management System */
+/* Note: Primary theme colors are defined in theme.css */
 
 :root {
-    --primary-color: #0d6efd;
-    --secondary-color: #6c757d;
-    --success-color: #198754;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #0dcaf0;
+    /* Bootstrap-specific colors for compatibility */
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-danger: #dc3545;
+    --bs-warning: #ffc107;
+    --bs-info: #0dcaf0;
 }
 
 /* Global Styles */
@@ -74,13 +76,15 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
 }
 
     .btn-primary:hover {
-        background-color: #0b5ed7;
-        border-color: #0a58ca;
+        background: linear-gradient(135deg, #3d0a32 0%, #a01a46 100%);
+        border: none;
+        color: white;
         transform: translateY(-1px);
     }
 

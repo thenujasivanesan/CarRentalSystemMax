@@ -7,46 +7,45 @@
     <title>@ViewData["Title"] - Car Rental Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Main Theme CSS -->
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <style>
-        .navbar-brand {
-            font-weight: bold;
-        }
 
-        .car-card {
-            transition: transform 0.2s;
-        }
-
-        .car-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .availability-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .footer {
-            background-color: #f8f9fa;
-            margin-top: auto;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1;
-        }
-    </style>
+    <!-- Page-specific CSS -->
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home")
+    {
+        <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "CarDetails")
+    {
+        <link rel="stylesheet" href="~/css/car-details.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Bookings")
+    {
+        <link rel="stylesheet" href="~/css/booking.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Account")
+    {
+        <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Customer")
+    {
+        <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Admin")
+    {
+        <link rel="stylesheet" href="~/css/admin-dashboard.css" asp-append-version="true" />
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Customer" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard")
+    {
+        <link rel="stylesheet" href="~/css/customer-dashboard.css" asp-append-version="true" />
+    }
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                     <i class="bi bi-car-front"></i> Car Rental System
@@ -57,7 +56,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">
+                                <i class="bi bi-house"></i> Home
+                            </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -69,31 +70,47 @@
                             @if (role == "Admin")
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Dashboard", "Admin")">Admin Dashboard</a>
+                                    <a class="nav-link" href="@Url.Action("Dashboard", "Admin")">
+                                        <i class="bi bi-speedometer2"></i> Dashboard
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Index", "Cars")">Manage Cars</a>
+                                    <a class="nav-link" href="@Url.Action("Index", "Cars")">
+                                        <i class="bi bi-car-front"></i> Manage Cars
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Customers", "Admin")">Manage Customers</a>
+                                    <a class="nav-link" href="@Url.Action("Customers", "Admin")">
+                                        <i class="bi bi-people"></i> Customers
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("All", "Bookings")">All Bookings</a>
+                                    <a class="nav-link" href="@Url.Action("All", "Bookings")">
+                                        <i class="bi bi-calendar-check"></i> Bookings
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Index", "Reports")">Reports</a>
+                                    <a class="nav-link" href="@Url.Action("Index", "Reports")">
+                                        <i class="bi bi-file-earmark-text"></i> Reports
+                                    </a>
                                 </li>
                             }
                             else if (role == "Customer")
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Dashboard", "Customer")">Dashboard</a>
+                                    <a class="nav-link" href="@Url.Action("Dashboard", "Customer")">
+                                        <i class="bi bi-person-circle"></i> Dashboard
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("MyBookings", "Bookings")">My Bookings</a>
+                                    <a class="nav-link" href="@Url.Action("MyBookings", "Bookings")">
+                                        <i class="bi bi-calendar-check"></i> My Bookings
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Profile", "Customer")">My Profile</a>
+                                    <a class="nav-link" href="@Url.Action("Profile", "Customer")">
+                                        <i class="bi bi-person-gear"></i> Profile
+                                    </a>
                                 </li>
                             }
 
@@ -115,10 +132,14 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="@Url.Action("Login", "Account")">Login</a>
+                                <a class="nav-link" href="@Url.Action("Login", "Account")">
+                                    <i class="bi bi-box-arrow-in-right"></i> Login
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="@Url.Action("Register", "Account")">Register</a>
+                                <a class="nav-link" href="@Url.Action("Register", "Account")">
+                                    <i class="bi bi-person-plus"></i> Register
+                                </a>
                             </li>
                         }
                     </ul>
@@ -131,13 +152,52 @@
         @RenderBody()
     </main>
 
-    <footer class="footer mt-5 py-3">
+    <footer class="footer mt-5 py-4">
         <div class="container text-center">
-            <span class="text-muted">&copy; 2024 Car Rental Management System. All rights reserved.</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-white mb-3">Car Rental System</h5>
+                    <p class="text-muted mb-0">Your trusted partner for car rentals</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 Car Rental Management System. All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Page-specific JavaScript -->
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home")
+    {
+        <script src="~/js/home.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "CarDetails")
+    {
+        <script src="~/js/car-details.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Bookings")
+    {
+        <script src="~/js/booking.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Account")
+    {
+        <script src="~/js/auth.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Customer")
+    {
+        <script src="~/js/auth.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Admin")
+    {
+        <script src="~/js/admin-dashboard.js" asp-append-version="true"></script>
+    }
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Customer" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard")
+    {
+        <script src="~/js/customer-dashboard.js" asp-append-version="true"></script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

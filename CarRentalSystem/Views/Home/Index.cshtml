@@ -3,100 +3,248 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="jumbotron bg-primary text-white p-5 rounded mb-4">
-    <div class="container">
-        <h1 class="display-4">Welcome to Car Rental System</h1>
-        <p class="lead">Find and rent the perfect car for your journey</p>
-        @if (!ViewBag.IsLoggedIn)
-        {
-            <a class="btn btn-light btn-lg" href="@Url.Action("Register", "Account")" role="button">
-                Get Started <i class="bi bi-arrow-right"></i>
-            </a>
-        }
+<!-- Hero Section with Slider -->
+<section class="hero-section">
+    <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active"
+            style="background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        <!-- Slide 2 -->
+        <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        <!-- Slide 3 -->
+        <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1494976688153-ca3ce29d8df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        </div>
     </div>
-</div>
 
-<!-- Search and Filter Section -->
-<div class="card mb-4">
-    <div class="card-body">
-        <form method="get" asp-action="Index">
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Search Cars</label>
-                    <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" class="form-control"
-                        placeholder="Search by name, brand, or model">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Number of Seats</label>
-                    <select name="seats" class="form-select">
-                        <option value="">All Seat Counts</option>
-                        <option value="2" selected="@(ViewBag.Seats == 2)">2 Seats</option>
-                        <option value="4" selected="@(ViewBag.Seats == 4)">4 Seats</option>
-                        <option value="5" selected="@(ViewBag.Seats == 5)">5 Seats</option>
-                        <option value="7" selected="@(ViewBag.Seats == 7)">7 Seats</option>
-                        <option value="8" selected="@(ViewBag.Seats == 8)">8+ Seats</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label">&nbsp;</label>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-search"></i> Search
-                        </button>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Premium Car Rental</h1>
+            <p>Experience luxury and comfort with our premium fleet of vehicles. Book your perfect ride today!</p>
+            @if (!ViewBag.IsLoggedIn)
+            {
+                <a class="hero-cta" href="@Url.Action("Register", "Account")" role="button">
+                    Get Started <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            }
+            else
+            {
+                <a class="hero-cta" href="#cars-section" role="button">
+                    Browse Cars <i class="bi bi-car-front ms-2"></i>
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-arrow prev" aria-label="Previous slide">
+        <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="hero-arrow next" aria-label="Next slide">
+        <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- Dots Navigation -->
+    <div class="hero-nav">
+        <span class="hero-dot active"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+    </div>
+</section>
+
+<section class="offers-section py-5">
+    <div class="container">
+        <h2 class="section-title mb-4 text-center">Today's Car Rental Offers</h2>
+        <div class="row g-4">
+
+            <!-- Offer Card 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="offer-card shadow-sm">
+                    <span class="offer-badge">SAVE 20%</span>
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a"
+                         alt="Superflex Car" class="offer-img" />
+                    <div class="offer-content text-center">
+                        <h5 class="mt-2">Discover Superflex</h5>
+                        <p class="text-muted">Ride with 20% discount today</p>
+                        <div class="d-flex justify-content-center gap-2 mt-2">
+                            <!-- View Details using CarController Details method -->
+                            <a asp-controller="Cars" asp-action="Details" asp-route-id="1"
+                               class="btn btn-outline-primary btn-sm">View Details</a>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
+                                Book Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </form>
+
+            <!-- Offer Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="offer-card shadow-sm">
+                    <span class="offer-badge">20% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
+                         alt="Italy Car" class="offer-img" />
+                    <div class="offer-content text-center">
+                        <h5 class="mt-2">Discover Italy</h5>
+                        <p class="text-muted">Ride with 20% discount in Italy</p>
+                        <div class="d-flex justify-content-center gap-2 mt-2">
+                            <a asp-controller="Cars" asp-action="Details" asp-route-id="2"
+                               class="btn btn-outline-primary btn-sm">View Details</a>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offer Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="offer-card shadow-sm">
+                    <span class="offer-badge">UP TO 15%</span>
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                         alt="Beautiful Car" class="offer-img" />
+                    <div class="offer-content text-center">
+                        <h5 class="mt-2">Life is Beautiful</h5>
+                        <p class="text-muted">Enjoy up to 15% off today</p>
+                        <div class="d-flex justify-content-center gap-2 mt-2">
+                            <a asp-controller="Cars" asp-action="Details" asp-route-id="3"
+                               class="btn btn-outline-primary btn-sm">View Details</a>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offer Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="offer-card shadow-sm">
+                    <span class="offer-badge">HOT DEAL</span>
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+                         alt="Spain Car" class="offer-img" />
+                    <div class="offer-content text-center">
+                        <h5 class="mt-2">Visit Spain this Autumn</h5>
+                        <p class="text-muted">Exclusive hot deals available</p>
+                        <div class="d-flex justify-content-center gap-2 mt-2">
+                            <a asp-controller="Cars" asp-action="Details" asp-route-id="4"
+                               class="btn btn-outline-primary btn-sm">View Details</a>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-sm">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
+</section>
 
+<!-- Search and Filter Section -->
+<section class="filter-section" id="filter-section">
+    <h4 class="filter-title">
+        <i class="bi bi-funnel"></i>
+        Find Your Perfect Car
+    </h4>
+    <form method="get" asp-action="Index">
+        <div class="filter-row">
+            <div class="filter-group">
+                <label class="form-label">Search Cars</label>
+                <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" class="form-control"
+                    placeholder="Search by name, brand, or model">
+            </div>
+            <div class="filter-group">
+                <label class="form-label">Number of Seats</label>
+                <select name="seats" class="form-select">
+                    <option value="">All Seat Counts</option>
+                    <option value="2" selected="@(ViewBag.Seats == 2)">2 Seats</option>
+                    <option value="4" selected="@(ViewBag.Seats == 4)">4 Seats</option>
+                    <option value="5" selected="@(ViewBag.Seats == 5)">5 Seats</option>
+                    <option value="7" selected="@(ViewBag.Seats == 7)">7 Seats</option>
+                    <option value="8" selected="@(ViewBag.Seats == 8)">8+ Seats</option>
+                </select>
+            </div>
+            <button type="submit" class="filter-btn">
+                <i class="bi bi-search"></i> Search
+            </button>
+        </div>
+    </form>
+</section>
 
+<!-- About / Highlights Section -->
+<section class="highlights-section">
+    <div class="highlights-container">
+        <div class="highlight-item">
+            <i class="bi bi-shield-check"></i>
+            <h5>Fully Insured</h5>
+            <p>All our vehicles are fully insured for your peace of mind.</p>
+        </div>
+        <div class="highlight-item">
+            <i class="bi bi-clock-history"></i>
+            <h5>24/7 Support</h5>
+            <p>We�re here for you around the clock, whenever you need us.</p>
+        </div>
+        <div class="highlight-item">
+            <i class="bi bi-people"></i>
+            <h5>1000+ Customers</h5>
+            <p>Trusted by thousands of happy customers across the country.</p>
+        </div>
+        <div class="highlight-item">
+            <i class="bi bi-star"></i>
+            <h5>Premium Quality</h5>
+            <p>Experience the comfort of our premium, well-maintained fleet.</p>
+        </div>
+    </div>
+</section>
 
-<!-- Cars Grid -->
-<div class="row">
-    @if (Model.Any())
-    {
-        @foreach (var car in Model)
+<!-- Cars Grid Section -->
+<section id="cars-section">
+    <div class="cars-grid">
+        @if (Model.Any())
         {
-            <div class="col-md-4 mb-4">
-                <div class="card car-card h-100">
-                    <div class="position-relative">
+            @foreach (var car in Model)
+            {
+                <div class="car-card">
+                    <div class="car-image">
                         @if (!string.IsNullOrEmpty(car.ImageUrl))
                         {
-                            <img src="@car.ImageUrl" class="card-img-top" alt="@car.CarName"
-                                style="height: 200px; object-fit: cover;">
+                            <img src="@car.ImageUrl" alt="@car.CarName">
                         }
                         else if (!string.IsNullOrEmpty(car.ImagePath))
                         {
-                            <img src="@Url.Content("~/uploads/" + car.ImagePath)" class="card-img-top" alt="@car.CarName"
-                                style="height: 200px; object-fit: cover;">
+                            <img src="@Url.Content("~/uploads/" + car.ImagePath)" alt="@car.CarName">
                         }
                         else
                         {
-                            <div class="card-img-top d-flex align-items-center justify-content-center bg-light"
-                                style="height: 200px;">
-                                <i class="bi bi-car-front display-1 text-muted"></i>
+                            <div class="placeholder">
+                                <i class="bi bi-car-front"></i>
+                                <p>No Image Available</p>
                             </div>
                         }
 
-                        <span class="badge availability-badge @(car.IsAvailable ? "bg-success" : "bg-danger")">
+                        <span class="availability-badge @(car.IsAvailable ? "status-available" : "status-booked")">
                             @(car.IsAvailable ? "Available" : "Booked")
                         </span>
                     </div>
 
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">@car.CarName</h5>
-                        <p class="card-text">
-                            <strong>Brand:</strong> @car.Brand<br>
-                            <strong>Model Year:</strong> @car.CarModel<br>
-                            <strong>Seats:</strong> <i class="bi bi-people"></i> @car.Seats passengers<br>
-                            <strong>Status:</strong>
-                            <span class="@(car.IsAvailable ? "text-success" : "text-danger")">
-                                @(car.IsAvailable ? "Available" : "Booked")
-                            </span>
-                        </p>
+                    <div class="car-info">
+                        <h3 class="car-title">@car.CarName</h3>
+                        <div class="car-details">
+                            <p><strong>Brand:</strong> @car.Brand</p>
+                            <p><strong>Model Year:</strong> @car.CarModel</p>
+                            <p><strong>Seats:</strong> <i class="bi bi-people"></i> @car.Seats passengers</p>
+                        </div>
 
-                        <div class="mt-auto">
+                        <div class="car-price">
+                            $50.00 <small>per day</small>
+                        </div>
+
+                        <div class="car-actions">
                             <a href="@Url.Action("CarDetails", "Home", new { id = car.CarID })" class="btn btn-outline-primary">
                                 <i class="bi bi-eye"></i> View Details
                             </a>
@@ -119,16 +267,47 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
-    }
-    else
-    {
-        <div class="col-12">
-            <div class="alert alert-info text-center">
-                <h4><i class="bi bi-info-circle"></i> No cars found</h4>
+        else
+        {
+            <div class="empty-state">
+                <i class="bi bi-car-front"></i>
+                <h4>No cars found</h4>
                 <p>Try adjusting your search criteria or check back later for new cars.</p>
             </div>
+        }
+    </div>
+
+    <!-- Pagination -->
+    @if (Model.Any())
+    {
+        <div class="pagination-wrapper">
+            <nav aria-label="Car pagination">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <i class="bi bi-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     }
-</div>
+</section>
+
+

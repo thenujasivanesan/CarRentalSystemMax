@@ -1,0 +1,679 @@
+/* Customer Dashboard Styles */
+
+/* Dashboard Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Dashboard Header */
+.customer-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                var(--gradient-primary) border-box;
+    border-image: var(--gradient-primary) 1;
+}
+
+.customer-dashboard-title {
+    color: var(--primary-color);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-shadow: 0 2px 4px rgba(73, 11, 61, 0.1);
+}
+
+.customer-dashboard-title i {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(189, 30, 81, 0.2));
+}
+
+.customer-welcome {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(241, 184, 20, 0.1) 0%, rgba(241, 184, 20, 0.05) 100%);
+    border-radius: 2rem;
+    border: 1px solid rgba(241, 184, 20, 0.2);
+}
+
+.customer-welcome i {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+/* Customer Stats */
+.customer-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.customer-stat-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.customer-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.customer-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.customer-stat-card.bookings::before {
+    background: var(--gradient-primary);
+}
+
+.customer-stat-card.spending::before {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.customer-stat-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customer-stat-info h4 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.customer-stat-info p {
+    margin: 0;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.customer-stat-icon {
+    font-size: 2.5rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.customer-stat-card:hover .customer-stat-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.customer-stat-card.bookings .customer-stat-icon {
+    color: var(--primary-color);
+}
+
+.customer-stat-card.spending .customer-stat-icon {
+    color: #28a745;
+}
+
+/* Quick Actions */
+.customer-quick-actions {
+    margin-bottom: 3rem;
+}
+
+.customer-actions-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.customer-actions-header {
+    background: var(--gradient-primary);
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.customer-actions-header h5 {
+    margin: 0;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.customer-actions-header i {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+.customer-actions-body {
+    padding: 2rem;
+}
+
+.customer-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+}
+
+.customer-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-height: 120px;
+}
+
+.customer-action-btn i {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.customer-action-btn:hover i {
+    transform: scale(1.2);
+}
+
+.customer-action-btn.primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-light);
+}
+
+.customer-action-btn.primary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.customer-action-btn.outline-primary {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.customer-action-btn.outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.customer-action-btn.outline-info {
+    background: transparent;
+    color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.customer-action-btn.outline-info:hover {
+    background: #17a2b8;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Recent Bookings */
+.customer-bookings-section {
+    margin-bottom: 2rem;
+}
+
+/* Enhanced Booking Table Styles */
+.customer-booking-id {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+}
+
+.customer-car-info strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.customer-date {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.customer-cost {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.customer-cancel-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.customer-cancel-btn:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.customer-cancel-btn i {
+    margin-right: 0.25rem;
+}
+
+.customer-view-all {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.customer-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(73, 11, 61, 0.1) 0%, rgba(189, 30, 81, 0.1) 100%);
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.customer-view-all-btn:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.customer-bookings-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.customer-bookings-header {
+    background: var(--gradient-primary);
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.customer-bookings-header h5 {
+    margin: 0;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.customer-bookings-header i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+
+.customer-bookings-body {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* Enhanced Customer Table */
+.customer-table {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.customer-table th,
+.customer-table td {
+    word-wrap: break-word;
+}
+
+.customer-table thead th {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1.25rem;
+    font-size: 0.875rem;
+}
+
+.customer-table tbody td {
+    padding: 1.25rem;
+    border-color: var(--border-color);
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.customer-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.customer-table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(189, 30, 81, 0.03) 0%, rgba(189, 30, 81, 0.03) 100%);
+    transform: scale(1.01);
+}
+
+/* Cancel Button Styling */
+.cancel-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cancel-btn:hover {
+    background: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Empty State for Customer */
+.customer-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.customer-empty-state i {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.customer-empty-state h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.customer-empty-state p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.customer-empty-state .btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* View All Button */
+.customer-view-all-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem;
+}
+
+.customer-view-all-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Profile Summary */
+.customer-profile-summary {
+    background: var(--gradient-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.customer-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: var(--shadow-medium);
+}
+
+.customer-name {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.customer-role {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .customer-dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .customer-dashboard-title {
+        font-size: 1.875rem;
+    }
+
+    .customer-welcome {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .customer-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .customer-stat-card {
+        padding: 1.5rem;
+    }
+
+    .customer-stat-info h4 {
+        font-size: 2rem;
+    }
+
+    .customer-actions-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .customer-actions-body {
+        padding: 1.5rem;
+    }
+
+    .customer-table {
+        font-size: 0.875rem;
+    }
+
+    .customer-table thead th,
+    .customer-table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .customer-car-info strong {
+        font-size: 0.9rem;
+    }
+
+    .customer-car-info small {
+        font-size: 0.75rem;
+    }
+
+    .customer-cancel-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .customer-dashboard-title {
+        font-size: 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .customer-dashboard-title i {
+        font-size: 1.5rem;
+    }
+
+    .customer-welcome {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .customer-stat-card {
+        padding: 1rem;
+    }
+
+    .customer-stat-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .customer-stat-info h4 {
+        font-size: 1.75rem;
+    }
+
+    .customer-stat-icon {
+        font-size: 2rem;
+    }
+
+    .customer-actions-header,
+    .customer-bookings-header {
+        padding: 1rem;
+    }
+
+    .customer-actions-body {
+        padding: 1rem;
+    }
+
+    .customer-action-btn {
+        padding: 1rem;
+        min-height: 100px;
+        font-size: 0.9rem;
+    }
+
+    .customer-action-btn i {
+        font-size: 1.5rem;
+    }
+
+    .customer-empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .customer-empty-state i {
+        font-size: 3rem;
+    }
+
+    .customer-table {
+        font-size: 0.8rem;
+    }
+
+    .customer-table thead th,
+    .customer-table tbody td {
+        padding: 0.5rem 0.25rem;
+    }
+
+    .customer-booking-id {
+        font-size: 0.85rem;
+    }
+
+    .customer-cost {
+        font-size: 1rem;
+    }
+
+    .customer-cancel-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .customer-view-all-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+.card-header h4 {
+    color: white;
+}
+
+.card-header h5 {
+    color: white;
+}
+
+
+
+

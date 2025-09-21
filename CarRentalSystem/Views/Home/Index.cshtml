@@ -24,18 +24,23 @@
         <div class="hero-content">
             <h1>Premium Car Rental</h1>
             <p>Experience luxury and comfort with our premium fleet of vehicles. Book your perfect ride today!</p>
-            @if (!ViewBag.IsLoggedIn)
-            {
-                <a class="hero-cta" href="@Url.Action("Register", "Account")" role="button">
-                    Get Started <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-            }
-            else
-            {
-                <a class="hero-cta" href="@Url.Action("Cars", "Home")" role="button">
-                    Browse Cars <i class="bi bi-car-front ms-2"></i>
-                </a>
-            }
+            <div class="hero-buttons">
+                @if (!ViewBag.IsLoggedIn)
+                {
+                    <a class="hero-cta primary" href="@Url.Action("Register", "Account")" role="button">
+                        Get Started <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                    <a class="hero-cta secondary" href="@Url.Action("Cars", "Home")" role="button">
+                        Browse Cars <i class="bi bi-car-front ms-2"></i>
+                    </a>
+                }
+                else
+                {
+                    <a class="hero-cta primary" href="@Url.Action("Cars", "Home")" role="button">
+                        Browse Cars <i class="bi bi-car-front ms-2"></i>
+                    </a>
+                }
+            </div>
         </div>
     </div>
 

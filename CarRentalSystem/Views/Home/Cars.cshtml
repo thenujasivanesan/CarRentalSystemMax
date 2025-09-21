@@ -1,0 +1,130 @@
+@model IEnumerable<CarRentalSystem.Models.Car>
+
+@{
+    ViewData["Title"] = "Cars";
+}
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <h1 class="page-title">
+            <i class="bi bi-car-front"></i>
+            Our Car Collection
+        </h1>
+        <p class="page-subtitle">Browse through our extensive collection of premium vehicles</p>
+    </div>
+</div>
+
+<!-- Search and Filter Section -->
+<section class="filter-section" id="filter-section">
+    <h4 class="filter-title">
+        <i class="bi bi-funnel"></i>
+        Find Your Perfect Car
+    </h4>
+    <form method="get" asp-action="Cars">
+        <div class="filter-row">
+            <div class="filter-group">
+                <label class="form-label">Search Cars</label>
+                <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" class="form-control"
+                    placeholder="Search by name, brand, or model">
+            </div>
+            <div class="filter-group">
+                <label class="form-label">Number of Seats</label>
+                <select name="seats" class="form-select">
+                    <option value="">All Seat Counts</option>
+                    <option value="2" selected="@(ViewBag.Seats == 2)">2 Seats</option>
+                    <option value="4" selected="@(ViewBag.Seats == 4)">4 Seats</option>
+                    <option value="5" selected="@(ViewBag.Seats == 5)">5 Seats</option>
+                    <option value="7" selected="@(ViewBag.Seats == 7)">7 Seats</option>
+                    <option value="8" selected="@(ViewBag.Seats == 8)">8+ Seats</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search"></i> Search
+                </button>
+                <a href="@Url.Action("Cars", "Home")" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-clockwise"></i> Reset
+                </a>
+            </div>
+        </div>
+    </form>
+</section>
+
+<!-- Cars Grid Section -->
+<section id="cars-section">
+    <div class="cars-grid">
+        @if (Model.Any())
+        {
+            @foreach (var car in Model)
+            {
+                <div class="car-card">
+                    <div class="car-image">
+                        @if (!string.IsNullOrEmpty(car.ImageUrl))
+                        {
+                            <img src="@car.ImageUrl" alt="@car.CarName">
+                        }
+                        else if (!string.IsNullOrEmpty(car.ImagePath))
+                        {
+                            <img src="@Url.Content("~/uploads/" + car.ImagePath)" alt="@car.CarName">
+                        }
+                        else
+                        {
+                            <div class="placeholder">
+                                <i class="bi bi-car-front"></i>
+                                <p>No Image Available</p>
+                            </div>
+                        }
+
+                        <span class="availability-badge @(car.IsAvailable ? "status-available" : "status-booked")">
+                            @(car.IsAvailable ? "Available" : "Booked")
+                        </span>
+                    </div>
+
+                    <div class="car-info">
+                        <h5 class="car-name">@car.CarName</h5>
+                        <p class="car-details">@car.Brand @car.CarModel</p>
+                        <div class="car-specs">
+                            <span class="spec-item">
+                                <i class="bi bi-people"></i> @car.Seats Seats
+                            </span>
+                            <span class="spec-item price">
+                                <i class="bi bi-currency-dollar"></i>@car.DailyRate.ToString("F2")/day
+                            </span>
+                        </div>
+
+                        <div class="car-actions">
+                            <a href="@Url.Action("CarDetails", "Home", new { id = car.CarID })" class="btn btn-outline-primary">
+                                <i class="bi bi-eye"></i> View Details
+                            </a>
+
+                            @if (car.IsAvailable)
+                            {
+                                @if (ViewBag.IsCustomer)
+                                {
+                                    <a href="@Url.Action("Book", "Bookings", new { carId = car.CarID })" class="btn btn-success">
+                                        <i class="bi bi-calendar-check"></i> Book Now
+                                    </a>
+                                }
+                                else if (!ViewBag.IsLoggedIn)
+                                {
+                                    <a href="@Url.Action("Login", "Account")" class="btn btn-warning">
+                                        <i class="bi bi-box-arrow-in-right"></i> Login to Book
+                                    </a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="empty-state">
+                <i class="bi bi-car-front"></i>
+                <h4>No cars found</h4>
+                <p>Try adjusting your search criteria or check back later for new cars.</p>
+            </div>
+        }
+    </div>
+</section>

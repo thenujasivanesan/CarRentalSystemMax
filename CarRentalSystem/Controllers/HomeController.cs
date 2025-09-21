@@ -25,8 +25,8 @@ namespace CarRentalSystem.Controllers
             // Apply filters
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                carsQuery = carsQuery.Where(c => c.CarName.Contains(searchTerm) || 
-                                               c.CarModel.Contains(searchTerm) || 
+                carsQuery = carsQuery.Where(c => c.CarName.Contains(searchTerm) ||
+                                               c.CarModel.Contains(searchTerm) ||
                                                c.Brand.Contains(searchTerm));
             }
 
@@ -46,6 +46,43 @@ namespace CarRentalSystem.Controllers
             var cars = await carsQuery.ToListAsync();
 
 
+            ViewBag.SearchTerm = searchTerm;
+            ViewBag.Seats = seats;
+            ViewBag.IsLoggedIn = IsLoggedIn;
+            ViewBag.IsCustomer = IsCustomer;
+
+            return View(cars);
+        }
+
+        public async Task<IActionResult> Cars(string searchTerm = "", int? seats = null)
+        {
+            var carsQuery = _context.Cars.AsQueryable();
+
+            // Show all cars (both available and unavailable) on the Cars page
+            // Apply filters
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                carsQuery = carsQuery.Where(c => c.CarName.Contains(searchTerm) ||
+                                               c.CarModel.Contains(searchTerm) ||
+                                               c.Brand.Contains(searchTerm));
+            }
+
+            if (seats.HasValue)
+            {
+                if (seats.Value == 8)
+                {
+                    // 8+ seats means 8 or more
+                    carsQuery = carsQuery.Where(c => c.Seats >= 8);
+                }
+                else
+                {
+                    carsQuery = carsQuery.Where(c => c.Seats == seats.Value);
+                }
+            }
+
+            var cars = await carsQuery.ToListAsync();
+
+            // Set ViewBag properties for the view
             ViewBag.SearchTerm = searchTerm;
             ViewBag.Seats = seats;
             ViewBag.IsLoggedIn = IsLoggedIn;

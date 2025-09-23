@@ -78,7 +78,6 @@
                                 <th>Pickup Date</th>
                                 <th>Return Date</th>
                                 <th>Total Cost</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,15 +101,6 @@
                                     </td>
                                     <td>
                                         <span class="customer-cost">$@booking.TotalCost.ToString("F2")</span>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="customer-cancel-btn"
-                                                onclick="showCancelConfirmation(@booking.BookingID)">
-                                            <i class="bi bi-x-circle"></i> Cancel
-                                        </button>
-                                        <form id="cancel-form-@booking.BookingID" asp-controller="Bookings" asp-action="Cancel"
-                                              asp-route-id="@booking.BookingID" method="post" style="display: none;">
-                                        </form>
                                     </td>
                                 </tr>
                             }

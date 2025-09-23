@@ -25,8 +25,10 @@
                                 <i class="bi bi-person"></i>
                                 Full Name
                             </label>
-                            <i class="input-icon bi bi-person"></i>
-                            <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-person"></i>
+                                <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                            </div>
                             <span asp-validation-for="FullName" class="field-validation-error"></span>
                         </div>
                     </div>
@@ -36,8 +38,10 @@
                                 <i class="bi bi-envelope"></i>
                                 Email Address
                             </label>
-                            <i class="input-icon bi bi-envelope"></i>
-                            <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-envelope"></i>
+                                <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+                            </div>
                             <span asp-validation-for="Email" class="field-validation-error"></span>
                         </div>
                     </div>
@@ -50,8 +54,11 @@
                                 <i class="bi bi-telephone"></i>
                                 Phone Number
                             </label>
-                            <i class="input-icon bi bi-telephone"></i>
-                            <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-telephone"></i>
+                                <input asp-for="PhoneNumber" class="form-control"
+                                    placeholder="Enter your phone number" />
+                            </div>
                             <span asp-validation-for="PhoneNumber" class="field-validation-error"></span>
                         </div>
                     </div>
@@ -61,8 +68,10 @@
                                 <i class="bi bi-card-text"></i>
                                 NIC Number
                             </label>
-                            <i class="input-icon bi bi-card-text"></i>
-                            <input asp-for="NICNumber" class="form-control" placeholder="Enter your NIC number" />
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-card-text"></i>
+                                <input asp-for="NICNumber" class="form-control" placeholder="Enter your NIC number" />
+                            </div>
                             <span asp-validation-for="NICNumber" class="field-validation-error"></span>
                         </div>
                     </div>
@@ -73,9 +82,11 @@
                         <i class="bi bi-geo-alt"></i>
                         Address
                     </label>
-                    <i class="input-icon bi bi-geo-alt"></i>
-                    <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter your full address"
-                        style="padding-left: 3rem;"></textarea>
+                    <div class="input-wrapper">
+                        <i class="input-icon bi bi-geo-alt"></i>
+                        <textarea asp-for="Address" class="form-control" rows="3"
+                            placeholder="Enter your full address"></textarea>
+                    </div>
                     <span asp-validation-for="Address" class="field-validation-error"></span>
                 </div>
 
@@ -87,8 +98,10 @@
                         <i class="bi bi-person-circle"></i>
                         Username
                     </label>
-                    <i class="input-icon bi bi-person-circle"></i>
-                    <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+                    <div class="input-wrapper">
+                        <i class="input-icon bi bi-person-circle"></i>
+                        <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+                    </div>
                     <span asp-validation-for="Username" class="field-validation-error"></span>
                 </div>
 
@@ -99,12 +112,14 @@
                                 <i class="bi bi-lock"></i>
                                 Password
                             </label>
-                            <i class="input-icon bi bi-lock"></i>
-                            <input asp-for="Password" class="form-control" type="password"
-                                placeholder="Choose a password (min 6 characters)" />
-                            <button type="button" class="password-toggle" aria-label="Show password">
-                                <i class="bi bi-eye"></i>
-                            </button>
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-lock"></i>
+                                <input asp-for="Password" class="form-control" type="password"
+                                    placeholder="Choose a password (min 6 characters)" />
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                             <span asp-validation-for="Password" class="field-validation-error"></span>
                         </div>
                     </div>
@@ -114,12 +129,14 @@
                                 <i class="bi bi-lock"></i>
                                 Confirm Password
                             </label>
-                            <i class="input-icon bi bi-lock"></i>
-                            <input asp-for="ConfirmPassword" class="form-control" type="password"
-                                placeholder="Confirm your password" />
-                            <button type="button" class="password-toggle" aria-label="Show password">
-                                <i class="bi bi-eye"></i>
-                            </button>
+                            <div class="input-wrapper">
+                                <i class="input-icon bi bi-lock"></i>
+                                <input asp-for="ConfirmPassword" class="form-control" type="password"
+                                    placeholder="Confirm your password" />
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                             <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
                         </div>
                     </div>

@@ -39,7 +39,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   width: 100%;
-  max-width: 450px;
+  max-width: 800px;
   position: relative;
   z-index: 10;
 }
@@ -111,7 +111,12 @@
 /* Form Styling */
 .auth-form .form-group {
   margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .auth-form .form-label {
@@ -177,9 +182,10 @@
   font-size: 1.1rem;
   z-index: 2;
   transition: color 0.3s ease;
+  pointer-events: none;
 }
 
-.form-group:focus-within .input-icon {
+.input-wrapper:focus-within .input-icon {
   color: var(--accent-color);
 }
 
@@ -371,31 +377,7 @@
   }
 }
 
-/* Demo Credentials */
-.demo-credentials {
-  background: linear-gradient(
-    135deg,
-    rgba(23, 162, 184, 0.1) 0%,
-    rgba(23, 162, 184, 0.05) 100%
-  );
-  border: 1px solid #17a2b8;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  margin-top: 1.5rem;
-  font-size: 0.875rem;
-}
 
-.demo-credentials strong {
-  color: var(--primary-color);
-}
-
-.demo-credentials code {
-  background: rgba(73, 11, 61, 0.1);
-  color: var(--primary-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-}
 
 /* Profile Page Specific */
 .profile-container {
